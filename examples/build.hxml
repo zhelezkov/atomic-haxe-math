@@ -1,0 +1,4 @@
+-js no-output
+-cp .
+-main Test
+-lib atomic-haxe-math

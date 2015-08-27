@@ -1,0 +1,11 @@
+{
+  "name": "atomic-haxe-math",
+  "url" : "https://github.com/rsredsq/atomic-haxe-math/",
+  "tags": ["js", "atomic", "game", "engine", "math", "vector", "matrix"],
+  "description": "Math library for atomic-haxe",
+  "version": "1.0.0-alpha",
+  "releasenote": "Initial release, everything should work correctly.",
+  "contributors": ["rsredsq"],
+  "dependencies": {
+  }
+}
