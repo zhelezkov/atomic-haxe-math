@@ -297,7 +297,7 @@ abstract Quat(Array<Float>) {
     return cast this;
   }
 
-  @to public inline function toFloatArray() : Array<Float> {
+  @:to public inline function toFloatArray() : Array<Float> {
     return this;
   }
 

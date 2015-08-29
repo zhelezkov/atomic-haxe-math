@@ -3,6 +3,8 @@ package com.rsredsq.math;
 abstract Vec2(Array<Float>) {
   public function new() {
     this = new Array<Float>();
+    this[0] = 0;
+    this[1] = 0;
   }
 
   public static function fromValues(x: Float, y: Float) : Vec2 {
@@ -215,8 +217,14 @@ abstract Vec2(Array<Float>) {
     return l.cp().mul(r);
   }
 
-  @to public inline function toFloatArray() : Array<Float> {
+  @:to public inline function toFloatArray() : Array<Float> {
     return this;
+  }
+
+  @:from static public inline function fromArray(arr:Array<Float>) : Vec2 {
+      var v:Vec2 = new Vec2();
+      v.set(arr[0], arr[1]);
+      return v;
   }
 
   @:arrayAccess public inline function arrayRead(i: Int) : Float {

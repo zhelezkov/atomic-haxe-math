@@ -4,6 +4,10 @@ abstract Vec4(Array<Float>) {
 
   public function new() {
     this = new Array<Float>();
+    this[0] = 0;
+    this[1] = 0;
+    this[2] = 0;
+    this[3] = 0;
   }
 
   public static function fromValues(x: Float, y: Float, z: Float, w: Float) : Vec4 {
@@ -230,7 +234,7 @@ abstract Vec4(Array<Float>) {
     return l.cp().mul(r);
   }
 
-  @to public inline function toFloatArray() : Array<Float> {
+  @:to public inline function toFloatArray() : Array<Float> {
     return this;
   }
 

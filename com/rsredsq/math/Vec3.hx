@@ -4,6 +4,9 @@ abstract Vec3(Array<Float>) {
 
   public function new() {
     this = new Array<Float>();
+    this[0] = 0;
+    this[1] = 0;
+    this[2] = 0;
   }
 
   public static function fromValues(x: Float, y: Float, z: Float) : Vec3 {
@@ -183,6 +186,18 @@ abstract Vec3(Array<Float>) {
     return cast this;
   }
 
+  public function transformMat4(m:Mat4):Vec3 {
+    var x = this[0];
+    var y = this[1];
+    var z = this[2];
+    var w = m[3] * x + m[7] * y + m[11] * z + m[15];
+    w = w == 0 ? 1.0 : w;
+    this[0] = (m[0] * x + m[4] * y + m[8] * z + m[12]) / w;
+    this[1] = (m[1] * x + m[5] * y + m[9] * z + m[13]) / w;
+    this[2] = (m[2] * x + m[6] * y + m[10] * z + m[14]) / w;
+    return cast this;
+  }
+
   @:op(A + B) static public function addop(l: Vec3, r: Vec3) : Vec3 {
     return l.cp().add(r);
   }
@@ -203,8 +218,14 @@ abstract Vec3(Array<Float>) {
     return l.cp().mul(r);
   }
 
-  @to public inline function toFloatArray() : Array<Float> {
+  @:to public inline function toFloatArray() : Array<Float> {
     return this;
+  }
+
+  @:from static public inline function fromArray(arr:Array<Float>) : Vec3 {
+      var v:Vec3 = new Vec3();
+      v.set(arr[0], arr[1], arr[2]);
+      return v;
   }
 
   @:arrayAccess public inline function arrayRead(i: Int) : Float {
