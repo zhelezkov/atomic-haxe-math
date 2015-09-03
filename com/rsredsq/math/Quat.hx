@@ -7,6 +7,9 @@ abstract Quat(Array<Float>) {
 
   public function new() {
     this = new Array<Float>();
+    this[0] = 0;
+    this[1] = 0;
+    this[2] = 0;
     this[3] = 1;
   }
 
