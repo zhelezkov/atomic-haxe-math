@@ -7,10 +7,10 @@ abstract Quat(Array<Float>) {
 
   public function new() {
     this = new Array<Float>();
-    this[0] = 0;
+    this[0] = 1;
     this[1] = 0;
     this[2] = 0;
-    this[3] = 1;
+    this[3] = 0;
   }
 
   public function rotTo(a: Vec3, b: Vec3) : Quat {
@@ -298,6 +298,24 @@ abstract Quat(Array<Float>) {
     }
 
     return cast this;
+  }
+
+  public static function fromEuler(x:Float, y:Float, z:Float):Quat {
+    var q = new Quat();
+    x *= (Math.PI / 360);
+    y *= (Math.PI / 360);
+    z *= (Math.PI / 360);
+    var sinX = Math.sin(x);
+    var cosX = Math.cos(x);
+    var sinY = Math.sin(y);
+    var cosY = Math.cos(y);
+    var sinZ = Math.sin(z);
+    var cosZ = Math.cos(z);
+    q[0] = cosY * cosX * cosZ + sinY * sinX * sinZ;
+    q[1] = cosY * sinX * cosZ + sinY * cosX * sinZ;
+    q[2] = sinY * cosX * cosZ - cosY * sinX * sinZ;
+    q[3] = cosY * cosX * sinZ - sinY * sinX * cosZ;
+    return q;
   }
 
   @:to public inline function toFloatArray() : Array<Float> {
