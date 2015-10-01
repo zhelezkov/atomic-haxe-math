@@ -1,4 +1,4 @@
-package com.rsredsq.math;
+package atomicmath;
 
 abstract Vec4(Array<Float>) {
 

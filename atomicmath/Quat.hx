@@ -1,4 +1,4 @@
-package com.rsredsq.math;
+package atomicmath;
 
 abstract Quat(Array<Float>) {
   static var tmpVec3 = new Vec3();
