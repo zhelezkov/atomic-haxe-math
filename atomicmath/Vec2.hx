@@ -1,4 +1,4 @@
-package com.rsredsq.math;
+package atomicmath;
 
 abstract Vec2(Array<Float>) {
   public function new() {

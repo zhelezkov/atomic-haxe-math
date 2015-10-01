@@ -1,5 +1,4 @@
-
-import com.rsredsq.math.*;
+import atomicmath.*;
 
 class Test {
     public static inline function main():Void {

@@ -1,4 +1,4 @@
-package com.rsredsq.math;
+package atomicmath;
 
 abstract Mat2(Array<Float>) {
   public function new() {
